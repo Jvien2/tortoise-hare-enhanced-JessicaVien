@@ -34,7 +34,7 @@ function startRace(){
         clearInterval(raceIntervalId)
     }
     //trigger the move every second (setInterval())
-    raceIntervalId = setInterval(raceStep, 10)
+    raceIntervalId = setInterval(raceStep, 1000)
 }
 
 function raceStep(){
