@@ -15,6 +15,14 @@ let tortoiseWin = 0
 //hare
 let hareWin = 0
 
+//tie
+let tieWin = 0
+
+const tortoiseScore = document.getElementById('tortoiseScore')
+const hareScore = document.getElementById('hareScore')
+const tiedScore = document.getElementById('tiedScore')
+
+
 
 //start the race with a button click
 startBtn.addEventListener("click", startRace)
@@ -135,6 +143,7 @@ function renderTrack(){
 function showResult(){
     if(tortoisePosition >= track_length && harePosition >= track_length){
         messageEl.textContent = `IT'S A TIE!`
+        tieWin = tieWin + 1
     } else if(tortoisePosition >= track_length){
         messageEl.textContent = `TORTOISE WINS!!! YAYAYAYAY!!!`
         tortoiseWin = tortoiseWin + 1
@@ -144,6 +153,10 @@ function showResult(){
     } else {
         messageEl.textContent = `The race has stopped?`
 }
+
+hareScore.textContent = `Hare: ${hareWin} wins`
+tortoiseScore.textContent = `Tortoise: ${tortoiseWin} wins`
+tiedScore.textContent = `Ties: ${tieWin}`
 }
 
 //render the track - initial render of the empty track
