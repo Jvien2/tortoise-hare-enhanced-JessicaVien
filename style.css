@@ -106,3 +106,25 @@ button:disabled {
 #log .entry {
 	font-family: monospace;
 }
+
+#scoreboard {
+	max-width: 900px;
+	margin: 1rem auto 0;
+	padding: 0.5rem 0.75rem;
+	background-color: #fff;
+	border-radius: 6px;
+	border: 1px solid #ddd;
+	font-size: 0.85rem;
+	font-family: monospace;
+	font-weight:  bold;
+	max-height: 50vh;
+	overflow-y: auto;
+
+	
+}
+
+#scoreText {
+	text-align: center;	
+	margin-top: 0;
+	font-size: 1rem;
+}

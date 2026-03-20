@@ -9,12 +9,29 @@ let harePosition = 1
 let raceIntervalId = null
 let stepCount = 0
 
+//tortoise
+let tortoiseWin = 0
+
+//hare
+let hareWin = 0
+
+//tie
+let tieWin = 0
+
+const tortoiseScore = document.getElementById('tortoiseScore')
+const hareScore = document.getElementById('hareScore')
+const tiedScore = document.getElementById('tiedScore')
+
+
+
 //start the race with a button click
 startBtn.addEventListener("click", startRace)
 
 function startRace(){
     tortoisePosition = 1
     harePosition = 1
+    console.log(`Hare wins: ${hareWin}` )
+    console.log(`Tortoise wins: ${tortoiseWin}` )
 
     messageEl.textContent = "BANG!!!!! AND THEY ARE OFF!!!!"
 
@@ -30,7 +47,6 @@ function startRace(){
 
 function raceStep(){
     stepCount += 1
-    console.log(stepCount)
     //move the tortoise randomly - display (math.random)
     moveTortoise()
 
@@ -94,9 +110,9 @@ function moveHare(){
 
 function clampPosition(){
     tortoisePosition = Math.min(track_length, Math.max(1, tortoisePosition))
-    console.log(tortoisePosition)
+
     harePosition = Math.min(track_length, Math.max(1, harePosition))
-    console.log(harePosition)
+
 }
 
 function renderTrack(){
@@ -127,13 +143,20 @@ function renderTrack(){
 function showResult(){
     if(tortoisePosition >= track_length && harePosition >= track_length){
         messageEl.textContent = `IT'S A TIE!`
+        tieWin = tieWin + 1
     } else if(tortoisePosition >= track_length){
         messageEl.textContent = `TORTOISE WINS!!! YAYAYAYAY!!!`
+        tortoiseWin = tortoiseWin + 1
     } else if (harePosition >= track_length){
         messageEl.textContent = `aw shucks.. hare wins. yuck!`
+        hareWin = hareWin + 1
     } else {
         messageEl.textContent = `The race has stopped?`
 }
+
+hareScore.textContent = `Hare: ${hareWin} wins`
+tortoiseScore.textContent = `Tortoise: ${tortoiseWin} wins`
+tiedScore.textContent = `Ties: ${tieWin}`
 }
 
 //render the track - initial render of the empty track
